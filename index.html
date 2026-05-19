@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--nav-->
+    <nav>
+        <h2>Millicent</h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!--dark mode button-->
+        <button id="toggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <!--hero section-->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Hello, I'm <span>Millicent</span></h1>
+
+            <h2><span id="typing"></span></h2>
+            <p>I build clean, modern and responsive websites using HTML, CSS and JavaScript.</p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="images/imagebg.png" alt="My Image">
+        </div>
+    </section>
+
+    <!--about section-->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a motivated beginner web developer with a strong interest in building modern and user-friendly websites. <br> I have experience working with HTML, CSS, and JavaScript, and I enjoy creating clean, responsive designs with smooth user interaction. <br>
+
+           I have worked on several personal projects, including a portfolio website and web application concepts,<br>where I practiced designing layouts, structuring content, and improving user experience. <br> Through these projects, I have developed problem-solving skills and a solid foundation in front-end development. <br>
+
+           I am continuously learning and improving my skills, with a focus on building real-world <br> applications and expanding my knowledge in both front-end and back-end development.<br> I am currently seeking opportunities where I can grow, gain practical experience, and contribute to meaningful projects.</p>
+    </section>
+
+    <!--skills-->
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>I am a beginner web developer who builds simple and responsive websites using HTML, CSS, and JavaScript.<br> I enjoy creating interactive user interfaces and improving my skills through small projects.<br>
+            Skills I use:<br>
+
+                     ✔  HTML for structure<br>
+                     ✔  CSS for design and layout<br>
+                     ✔  JavaScript for interactivity<br>
+                     ✔  GitHub for project hosting</p>
+    </section>
+
+    <!--projects-->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-box">
+            <div class="projects-card">
+                <div class="projects-row">
+                    <img src="images/screenbg.jpeg" onclick="openImage(this)">
+                    <img src="images/screen2bg.jpeg" onclick="openImage(this)">
+                    <img src="images/screen3bg.jpeg" onclick="openImage(this)">
+            </div>
+               
+                <h3>To-Do App</h3>
+                <p>HTML, CSS, JavaScript project with local storage.</p> 
+            </div>
+        </div>
+        <p>Here are some of my recent projects.</p>
+    </section>
+
+    <!-- POPUP -->
+     <div id="imageModal" onclick="closeImage()">
+        <span class="close" onclick="closeImage()">&times;</span>
+         <img id="modalImg">
+     </div>
+
+    <!--contact-->
+    <section id="contact">
+
+        <h2>Contact</h2>
+        <div class="contact-icons">
+            <a href="mailto:nduranumillicent5@gmail.com">
+                 <i class="fas fa-envelope"></i>
+            </a>
+
+             <a href="tel:+254797627244">
+                <i class="fas fa-phone"></i>
+             </a>
+
+             <a href="https://github.com" target="_blank">
+                <i class="fab fa-github"></i>
+             </a>
+         </div>
+     </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
