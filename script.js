@@ -1,39 +1,46 @@
+// =====================
+// DARK MODE
+// =====================
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
 }
-// DARK MODE
+
 const toggleBtn = document.getElementById("toggle");
-const icon = toggleBtn.querySelector("i");
 
-toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
 
-    if (document.body.classList.contains("dark")) {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-        localStorage.setItem("theme", "dark");
-    } else {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-        localStorage.setItem("theme", "light");
-    }
-});
+        if (document.body.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+    });
+}
 
+
+// =====================
+// SMOOTH SCROLL NAV
+// =====================
 document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", function(e) {
-         const href = this.getAttribute("href");
+    link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
 
-        if (href.startsWith("#")) {
+        if (href && href.startsWith("#")) {
             e.preventDefault();
             const target = document.querySelector(href);
-            target.scrollIntoView({ behavior: "smooth" });
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
         }
     });
 });
 
 
-// TYPING EFFECT
-
+// =====================
+// ACTIVE NAV ON SCROLL
+// =====================
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
@@ -42,7 +49,7 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
-        if (scrollY >= sectionTop) {
+    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + section.offsetHeight) {
             current = section.getAttribute("id");
         }
     });
@@ -55,6 +62,10 @@ window.addEventListener("scroll", () => {
     });
 });
 
+
+// =====================
+// SCROLL ANIMATION
+// =====================
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -63,17 +74,28 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 
-document.querySelectorAll("section").forEach(section => {
+sections.forEach(section => {
     section.classList.add("hidden");
     observer.observe(section);
 });
+
+
+// =====================
+// TYPING EFFECT
+// =====================
 const text = ["Frontend Developer", "Web Designer", "JavaScript Learner"];
 let index = 0;
 let charIndex = 0;
 
 const typingElement = document.getElementById("typing");
 
+if (typingElement) {
+    document.addEventListener("DOMContentLoaded", type);
+}
+
 function type() {
+    if (!typingElement) return;
+
     if (charIndex < text[index].length) {
         typingElement.textContent += text[index].charAt(charIndex);
         charIndex++;
@@ -84,6 +106,8 @@ function type() {
 }
 
 function erase() {
+    if (!typingElement) return;
+
     if (charIndex > 0) {
         typingElement.textContent = text[index].substring(0, charIndex - 1);
         charIndex--;
@@ -96,11 +120,47 @@ function erase() {
 
 document.addEventListener("DOMContentLoaded", type);
 
+
+// =====================
+// IMAGE MODAL
+// =====================
 function openImage(img) {
-    document.getElementById("imageModal").style.display = "flex";
-    document.getElementById("modalImg").src = img.src;
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+
+    if (modal && modalImg) {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+    }
 }
 
 function closeImage() {
-    document.getElementById("imageModal").style.display = "none";
+    const modal = document.getElementById("imageModal");
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+// =====================
+// CONTACT POPUPS (FIXED)
+// =====================
+function togglePopup(id) {
+    const popup = document.getElementById(id);
+
+    if (!popup) return;
+
+    document.querySelectorAll(".popup").forEach(p => {
+        if (p !== popup) p.classList.remove("show");
+    });
+
+    popup.classList.toggle("show");
+}
+
+
+// =====================
+// GITHUB LINK
+// =====================
+function openGit() {
+    window.open("https://github.com/millie420", "_blank");
 }

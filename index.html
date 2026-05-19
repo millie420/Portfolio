@@ -94,22 +94,29 @@
 
     <!--contact-->
     <section id="contact">
-
         <h2>Contact</h2>
+
         <div class="contact-icons">
-            <a href="mailto:nduranumillicent5@gmail.com">
-                 <i class="fas fa-envelope"></i>
-            </a>
+            <i class="fas fa-phone" onclick="togglePopup('phonepopup')"></i>
+            <i class="fas fa-envelope" onclick="togglePopup('emailpopup')"></i>
+            <i class="fab fa-github" onclick="openGit()"></i>
+        </div>
+        <!--PHONE-->
+        <div id="phonepopup" class="popup">
+            <span class="close-btn" onclick="togglePopup('phonepopup')">&times;</span>
+            <p>
+                 📞 <a href="tel:+254797627244" >Call Now</a>
+            </p>
+        </div>
+        <!--EMAIL-->
+        <div id="emailpopup" class="popup">
+            <span class="close-btn" onclick="togglePopup('emailpopup')">&times;</span>
+            <p>
+                📧<a href="mailto:nduranumillicent5@gmail.com"></a>Send Email</a>
+            </p>
+        </div>
 
-             <a href="tel:+254797627244">
-                <i class="fas fa-phone"></i>
-             </a>
-
-             <a href="https://github.com" target="_blank">
-                <i class="fab fa-github"></i>
-             </a>
-         </div>
-     </section>
+    </section>
     
     <script src="script.js"></script>
 </body>
