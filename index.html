@@ -97,25 +97,32 @@
         <h2>Contact</h2>
 
         <div class="contact-icons">
-            <i class="fas fa-phone" onclick="togglePopup('phonepopup')"></i>
-            <i class="fas fa-envelope" onclick="togglePopup('emailpopup')"></i>
-            <i class="fab fa-github" onclick="openGit()"></i>
-        </div>
-        <!--PHONE-->
-        <div id="phonepopup" class="popup">
-            <span class="close-btn" onclick="togglePopup('phonepopup')">&times;</span>
-            <p>
-                 📞 <a href="tel:+254797627244" >Call Now</a>
-            </p>
-        </div>
-        <!--EMAIL-->
-        <div id="emailpopup" class="popup">
-            <span class="close-btn" onclick="togglePopup('emailpopup')">&times;</span>
-            <p>
-                📧<a href="mailto:nduranumillicent5@gmail.com"></a>Send Email</a>
-            </p>
-        </div>
 
+            <!--PHONE -->
+            <div class="contact-item">
+                <i class="fas fa-phone" onclick="togglePopup('phonepopup')"></i>
+
+                <div id="phonepopup" class="popup">
+                    <span class="close-btn" onclick="togglePopup('phonepopup')">&times;</span>
+                    <p>📞 <a href="tel:+254797627244">Call Me</a></p>
+                    <p class="contact-detail">+254 797 627 244</p>
+                </div>
+            </div>
+            <!--EMAIL-->
+            <div class="contact-item">
+                <i class="fas fa-envelope" onclick="togglePopup('emailpopup')"></i>
+
+                <div id="emailpopup" class="popup">
+                    <span class="close-btn" onclick="togglePopup('emailpopup')">&times;</span>
+                    <p>📧 <a href="mailto:nduranumillicent5@gmail.com">Send Email</a></p>
+                    <p class="contact-detail">nduranumillicent5@gmail.com</p>
+                </div>
+            </div>
+            <!--GITHUB-->
+            <div class="contact-item">
+                <i class="fab fa-github" onclick="openGit()"></i>
+            </div>
+        </div>
     </section>
     
     <script src="script.js"></script>

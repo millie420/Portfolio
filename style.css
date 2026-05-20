@@ -1,3 +1,11 @@
+/* FORCE DARK MODE SECTION COLORS */
+.dark #about,
+.dark #skills,
+.dark #projects {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+} 
+
 /* RESET */
 * {
     margin: 0;
@@ -67,7 +75,7 @@ nav a.active {
 .hero-text {
     max-width: 500px;
     color: #111;
-    flex: 1, /* ✅ ADD THIS */
+    flex: 1; /* ✅ ADD THIS */
 }
 
 .hero-text h1 {
@@ -148,28 +156,45 @@ section {
     transition: 0.3s;
 }
 
+.contact-detail {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
 .contact-icons i:hover {
     transform: scale(1.2);
     color: #00ff88;
 }
 
+.contact-item {
+    position: relative;
+}
+
 /* POPUP (FIXED CLEAN VERSION) */
 .popup {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 50%;
+   display: none;
+    position: absolute;
+    top: 120%;       /* below icon */
+    left: 50%;       /* center horizontally */
     transform: translateX(-50%);
     background: #222;
     color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
+    padding: 12px 18px;
+    border-radius: 8px;
     font-size: 14px;
-    z-index: 9999;
+    z-index: 1000;
+    min-width: 160px;
+}
+/* Phone & Email popup links */
+.popup a {
+    color: white;            /* ✅ make text white */
+    text-decoration: none;   /* ❌ remove underline */
+    font-weight: 500;
 }
 
 .popup.show {
-    display: block;
+    display: block !important;
 }
 
 .close-btn {
@@ -209,6 +234,12 @@ section {
     transform: scale(1.05);
 }
 
+.dark .projects-card {
+    background: #1f1f1f;
+    color: #eaeaea;
+    box-shadow: 0 4px 8px rgba(0, 255, 136, 0.2);
+    }
+
 /* MODAL IMAGE */
 #imageModal {
     display: none;
@@ -220,10 +251,9 @@ section {
     background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    display: flex;              /* ✅ ensures perfect centering */
     justify-content: center;
     align-items: center;
+     z-index: 1000;
 }
 
 #imageModal img {
@@ -234,13 +264,15 @@ section {
 }
 
 /* DARK MODE */
+
 .dark {
     background: #111;
-    color: #fff;
+    color: #fff; /* ✅ FIX: make text visible */
 }
 
 .dark section {
     background: #1a1a1a;
+    color: #fff; /* ✅ FIX: make text visible */
 }
 
 .dark nav {
@@ -323,5 +355,9 @@ section {
 
     .hero-text h2 {
         font-size: 18px;
+    }
+    .popup {
+    background: black !important;
+    color: white  !important;
     }
 }
