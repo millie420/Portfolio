@@ -19,6 +19,11 @@ if (toggleBtn) {
     });
 }
 
+function toggleMenu() {
+    const nav = document.getElementById("nav-links");
+    nav.classList.toggle("show");
+}
+
 
 // =====================
 // SMOOTH SCROLL NAV
@@ -83,7 +88,7 @@ sections.forEach(section => {
 // =====================
 // TYPING EFFECT
 // =====================
-const text = ["Frontend Developer", "Web Designer", "JavaScript Learner"];
+const text = ["Frontend Developer", "UI Designer","Web Designer", "Problem Solver"];
 let index = 0;
 let charIndex = 0;
 
