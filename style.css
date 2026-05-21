@@ -386,14 +386,16 @@ section {
 
 /* CLOSE BUTTON */
 .cv-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
+    position: fixed; 
+    top: 20px;
+    right: 20px;
     font-size: 28px;
-    cursor: pointer;
     color: white;
-    z-index: 10000;
-    
+    background: rgba(0,0,0,0.6);
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 99999;
 }
 
 .close {
@@ -502,15 +504,5 @@ section {
         border-radius: 0; /* remove curves for full screen */
     }
 
-    .cv-close {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    font-size: 28px;
-    color: white;
-    background: rgba(0,0,0,0.6);  
-    padding: 8px 12px;            
-    border-radius: 50%;          
-    z-index: 10001;
-    }
+    
 }
