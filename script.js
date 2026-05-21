@@ -21,8 +21,6 @@ if (toggleBtn) {
 
 function toggleMenu() {
     document.querySelector("nav ul").classList.toggle("show");
-    const nav = document.getElementById("nav-links");
-    nav.classList.toggle("show");
 }
 
 
@@ -171,28 +169,27 @@ function openGit() {
     window.open("https://github.com/millie420", "_blank");
 }
 
-function openCV() {
-    document.getElementById("cvModal").style.display = "flex";
-    document.getElementById("cvFrame").src = "cv/resume.pdf";
+window.openCV = function() {
+    if (window.innerWidth < 768) {
+        window.open("cv/resume.pdf", "_blank", "noopener,noreferrer");
+    } else {
+        document.getElementById("cvModal").style.display = "flex";
+        document.getElementById("cvFrame").src = "cv/resume.pdf";
+    }
 }
 
-function closeCV() {
+
+window.closeCV = function() {
     document.getElementById("cvModal").style.display = "none";
     document.getElementById("cvFrame").src = "";
-
 }
 
 window.onclick = function(event) {
     const modal = document.getElementById("cvModal");
-    if (event.target === modal) {
+    const frame = document.getElementById("cvFrame");
+
+    if (modal && event.target === modal) {
         modal.style.display = "none";
-        document.getElementById("cvFrame").src = "";
+        if (frame) frame.src = "";
     }
 }
-
-console.log("Modal display:", document.getElementById("cvModal").style.display);
-
-window.addEventListener("load", () => {
-    const modal = document.getElementById("cvModal");
-    modal.style.display = "none";
-});
