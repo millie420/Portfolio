@@ -109,6 +109,13 @@ nav a.active {
     object-fit: cover;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 /* BUTTONS */
 .btn {
     background: #00ff88;
@@ -117,6 +124,8 @@ nav a.active {
     text-decoration: none;
     margin-right: 10px;
     border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .btn-outline {
@@ -249,11 +258,10 @@ section {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.8);
+    display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: center;
-    align-items: center;
-     z-index: 1000;
+    z-index: 1000;
 }
 
 #imageModal img {
@@ -340,15 +348,83 @@ section {
     transform: translateY(0);
 }
 
+ /* CV MODAL BACKGROUND */
+.cv-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    /* center content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cv-close:hover {
+    color: #00ff88;
+    transform: scale(1.2);
+}
+
+
+/* CV BOX (DESKTOP) */
+.cv-content {
+    width: 90%;
+    height: 90%;
+    background: white;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* PDF INSIDE */
+.cv-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* CLOSE BUTTON */
+.cv-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    z-index: 10000;
+    
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
 
     nav {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
         text-align: center;
         justify-content: space-between;
         align-items: center;
+    }
+    nav h2 {
+        flex: 1;
     }
 
     nav ul {
@@ -372,25 +448,41 @@ section {
         display: block;
     } 
 
-    
+    #toggle {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
     .popup {
     background: black !important;
     color: white  !important;
     }
 
     .hero {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        padding: 30px 20px;   /* smaller padding */
+        min-height: auto;     /* removes huge screen height */
         text-align: center;
-        padding: 40px 20px;
-        gap: 25px;
+        gap: 20px;
+        
     }
 
     .hero-text {
         width: 100%;
         max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-text h2 {
+        font-size: 18px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
     }
 
     .hero-buttons {
@@ -405,8 +497,24 @@ section {
     }
 
     .hero-image img {
-        width: 180px;
+        width: 160px;
         height: 180px;
+        border-radius: 50%;
+    }
+    
+    .cv-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0; /* remove curves for full screen */
     }
 
+    .cv-close {
+    position: fixed;   /* 🔥 KEY FIX */
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;    /* 🔥 ABOVE EVERYTHING */
+    }
 }

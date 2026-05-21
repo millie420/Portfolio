@@ -20,6 +20,7 @@ if (toggleBtn) {
 }
 
 function toggleMenu() {
+    document.querySelector("nav ul").classList.toggle("show");
     const nav = document.getElementById("nav-links");
     nav.classList.toggle("show");
 }
@@ -168,4 +169,19 @@ function togglePopup(id) {
 // =====================
 function openGit() {
     window.open("https://github.com/millie420", "_blank");
+}
+
+function openCV() {
+    document.getElementById("cvModal").style.display = "flex";
+}
+
+function closeCV() {
+    document.getElementById("cvModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("cvModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 }
