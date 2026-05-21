@@ -504,8 +504,8 @@ section {
 
     .cv-close {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     font-size: 28px;
     color: white;
     background: rgba(0,0,0,0.6);  
