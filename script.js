@@ -170,14 +170,9 @@ function openGit() {
 }
 
 window.openCV = function() {
-    if (window.innerWidth < 768) {
-        window.open("cv/resume.pdf", "_blank", "noopener,noreferrer");
-    } else {
-        document.getElementById("cvModal").style.display = "flex";
-        document.getElementById("cvFrame").src = "cv/resume.pdf";
-    }
+    document.getElementById("cvModal").style.display = "flex";
+    document.getElementById("cvFrame").src = "cv/resume.pdf";
 }
-
 
 window.closeCV = function() {
     document.getElementById("cvModal").style.display = "none";
