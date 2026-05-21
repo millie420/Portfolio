@@ -503,12 +503,14 @@ section {
     }
 
     .cv-close {
-    position: fixed;   /* 🔥 KEY FIX */
+    position: fixed;
     top: 20px;
-    right: 25px;
-    font-size: 32px;
+    right: 20px;
+    font-size: 28px;
     color: white;
-    cursor: pointer;
-    z-index: 10000;    /* 🔥 ABOVE EVERYTHING */
+    background: rgba(0,0,0,0.6);  
+    padding: 8px 12px;            
+    border-radius: 50%;          
+    z-index: 10001;
     }
 }
