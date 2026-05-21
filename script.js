@@ -173,15 +173,26 @@ function openGit() {
 
 function openCV() {
     document.getElementById("cvModal").style.display = "flex";
+    document.getElementById("cvFrame").src = "cv/resume.pdf";
 }
 
 function closeCV() {
     document.getElementById("cvModal").style.display = "none";
+    document.getElementById("cvFrame").src = "";
+
 }
 
 window.onclick = function(event) {
     const modal = document.getElementById("cvModal");
     if (event.target === modal) {
         modal.style.display = "none";
+        document.getElementById("cvFrame").src = "";
     }
 }
+
+console.log("Modal display:", document.getElementById("cvModal").style.display);
+
+window.addEventListener("load", () => {
+    const modal = document.getElementById("cvModal");
+    modal.style.display = "none";
+});
