@@ -172,6 +172,7 @@ function openGit() {
 window.openCV = function() {
     document.getElementById("cvModal").style.display = "flex";
     document.getElementById("cvFrame").src = "cv/resume.pdf";
+    document.querySelector("nav ul").classList.remove("show");
 }
 
 window.closeCV = function() {
