@@ -20,7 +20,7 @@ if (toggleBtn) {
 }
 
 function toggleMenu() {
-    document.querySelector("nav ul").classList.toggle("show");
+   document.getElementById("menu").classList.toggle("show");
 }
 
 
@@ -169,15 +169,12 @@ function openGit() {
     window.open("https://github.com/millie420", "_blank");
 }
 
-window.openCV = function() {
-    document.getElementById("cvModal").style.display = "flex";
-    document.getElementById("cvFrame").src = "cv/resume.pdf";
-    document.querySelector("nav ul").classList.remove("show");
-}
+function openCV() {
+    const modal = document.getElementById("cvModal");
+    const frame = document.getElementById("cvFrame");
 
-window.closeCV = function() {
-    document.getElementById("cvModal").style.display = "none";
-    document.getElementById("cvFrame").src = "";
+    modal.style.display = "flex";
+    frame.src = "cv/resume.pdf#zoom=125";
 }
 
 window.onclick = function(event) {
@@ -189,3 +186,26 @@ window.onclick = function(event) {
         if (frame) frame.src = "";
     }
 }
+
+function closeCV() {
+    const modal = document.getElementById("cvModal");
+    const frame = document.getElementById("cvFrame");
+
+    modal.style.display = "none";
+    frame.src = "";
+}
+
+let currentSize = 16;
+
+function changeFontSize(change) {
+  currentSize += change;
+  document.querySelector(".cv-content").style.fontSize = currentSize + "px";
+}
+
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelector("nav ul").classList.remove("show");
+    });
+});
+
+

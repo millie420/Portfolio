@@ -18,9 +18,15 @@ body {
     background: #ffffff;
     color: #111;
     transition: 0.3s ease;
+    overflow-x: hidden;
 }
 
 /* NAV */
+.navbar {
+  position: relative;
+}
+
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -52,6 +58,21 @@ nav a.active {
     color: #00ff88;
 }
 
+.nav-links {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.nav-links::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+
 /* THEME BUTTON */
 #toggle {
     background: #00ff88;
@@ -63,6 +84,7 @@ nav a.active {
 
 /* HERO */
 .hero {
+    margin-top: 60px;
     display: flex;
     flex-direction: row; /* ✅ ADD THIS (IMPORTANT) */
     align-items: center;
@@ -276,6 +298,7 @@ section {
     font-size: 22px;
     cursor: pointer;
     color: white;
+    z-index: 1100;
 }
 
 /* DARK MODE */
@@ -349,16 +372,27 @@ section {
 
  /* CV MODAL BACKGROUND */
 .cv-modal {
-    display: none; 
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;  
+    height: 100%;
     background: rgba(0,0,0,0.85);
     justify-content: center;
     align-items: center;
+    transform: scale(1);
     z-index: 99999;
+}
+
+.cv-modal iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+iframe {
+    image-rendering: auto;
 }
 
 .cv-close:hover {
@@ -374,7 +408,7 @@ section {
     background: white;
     position: relative;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* PDF INSIDE */
@@ -382,6 +416,8 @@ section {
     width: 100%;
     height: 100%;
     border: none;
+    transform: scale(0.9);
+    transform-origin: top center;
 }
 
 /* CLOSE BUTTON */
@@ -392,7 +428,7 @@ section {
     font-size: 30px;
     color: white;
     background: rgba(0,0,0,0.6);
-    padding: 10px 14px;
+    padding: 8px 12px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 100000;
@@ -408,11 +444,22 @@ section {
     z-index: 1001;
 }
 
+.cv-controls {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 10px;
+  text-align: right;
+  z-index: 10;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
 
     nav {
+        display: flex;
+        padding: 15px 20px;
         flex-direction: row;
         gap: 10px;
         text-align: center;
@@ -421,27 +468,86 @@ section {
     }
     nav h2 {
         flex: 1;
+        margin-left: 10px;
     }
 
     nav ul {
         position: absolute;
-        top: 70px;
-        right: 0;
-        background: #000;
-        flex-direction: column;  
+        top: 60px;   
+        right: 10px;     
+        left: auto;   
+        background: black;
+        flex-direction: column;
         width: 200px;
         display: none;
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px;
+        z-index: 1000;
 
+    }
+    nav ul li {
+      width: 100%;
+    }
+
+    nav ul li a {
+       display: block;
+       padding: 10px;
+       width: 100%;
     }
 
     nav ul.show {
+        opacity: 1;
+        transform: translateY(0);
         display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px; /* just below nav bar*/
+        right: 10px;
+        width: 200px;
+        border-radius: 8px;
+        padding: 10px 0;
+        background: black;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease;
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav-links.active {
+     display: flex;
+     right: 0;
+    }
+
+    .nav-links a {
+         padding: 10px;
+         text-align: center;
+         color: #00ff99;
+         font-size: 18px;
+         width: 100%;
+         font-size: 18px;
+     }
+     .nav-links a:hover {
+         background: #111;
+     }
+
+    .navbar {
+      display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px 20px;
+    }
+
+    .logo {
+      margin-left: 10px; /* small space from edge */
     }
 
     .hamburger {
         display: block;
+        margin-left: auto;
     } 
 
     #toggle {
@@ -497,11 +603,17 @@ section {
         height: 180px;
         border-radius: 50%;
     }
+
+    .cv-modal {
+      width: 95%;
+      height: 90%;
+    }
     
     .cv-content {
         width: 100%;
         height: 100%;
         border-radius: 0; /* remove curves for full screen */
+        font-size: 14px;
     }
     #cvFrame {
     width: 100%;

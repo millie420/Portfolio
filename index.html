@@ -13,25 +13,21 @@
     <!--nav-->
     <nav>
         <h2>Millicent|Frontend Developer</h2>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#" onclick="openCV(); return false;">CV</a></li>
+
+             <!--- 🌙INSIDE MENU-->
+            <li>
+                <button id="toggle">🌙</button>
+            </li>
         </ul>
-
-        <!--hamburger-->
-        <div class="hamburger" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <!--dark mode button-->
-        <button id="toggle" class="theme-btn">
-            <i class="fas fa-moon"></i>
-        </button>
     </nav>
-
     <!--hero section-->
     <section class="hero" id="home">
         <div class="hero-text">
@@ -141,10 +137,14 @@
 
     <!--CV POPUP MODAL-->
     <div id="cvModal" class="cv-modal">
-        <span class="cv-close" onclick="closeCV()">✕</span>
+        <span class="cv-close" onclick="closeCV()">✖</span>
 
         <div class="cv-content">
             <iframe id="cvFrame"></iframe>
+        </div>
+
+        <div class="cv-controls">
+            <button onclick="openCV()">View CV</button>
         </div>
         
     </div>
