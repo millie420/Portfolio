@@ -17,10 +17,11 @@ if (toggleBtn) {
             localStorage.setItem("theme", "light");
         }
     });
+
 }
 
 function toggleMenu() {
-   document.getElementById("menu").classList.toggle("show");
+   document.querySelector("nav ul").classList.toggle("show");
 }
 
 
@@ -174,7 +175,7 @@ function openCV() {
     const frame = document.getElementById("cvFrame");
 
     modal.style.display = "flex";
-    frame.src = "cv/resume.pdf#zoom=125";
+    frame.src = "cv/resume.pdf";
 }
 
 window.onclick = function(event) {
