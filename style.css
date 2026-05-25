@@ -240,7 +240,25 @@ section {
     background: #fff;
     padding: 50px;
     border-radius: 20px;
-    transition: 0.3s;
+    transition: 0.3s ease;
+}
+
+.projects-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.projects-links {
+    margin-top: 10px;
+}
+
+.projects-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 12px;
+    background: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .projects-card:hover {
@@ -388,12 +406,6 @@ section {
     z-index: 99999;
 }
 
-.cv-modal iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
 iframe {
     image-rendering: auto;
 }
@@ -419,8 +431,7 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
-    transform: scale(0.9);
-    transform-origin: top center;
+    transform: none;
 }
 
 /* CLOSE BUTTON */
