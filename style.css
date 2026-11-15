@@ -172,12 +172,24 @@ section {
 #skills { background: #f5f5f5; }
 #projects { background: #ffffff; }
 
-/* CONTACT ICONS (FIXED) */
+/* CONTACT SECTION */
+#contact {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+/* CONTACT ICONS */
 .contact-icons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 50px;
     margin-top: 20px;
+    width: 100%;
 }
 
 .contact-icons i {
@@ -320,10 +332,12 @@ section {
 }
 
 .projects-card h3 {
+    color:white;
     margin: 15px 0;
 }
 
 .projects-card p {
+    color: white;
     line-height: 1.6;
 }
 
